@@ -10,19 +10,12 @@ public class PartitionerTest extends Partitioner<FloatWritable, Text>{
 
 	@Override
 	public int getPartition(FloatWritable key, Text val, int arg2) {
-	
 
-		if(val.toString().equals("me-asp")) {
-			return 0;
-		}else {
-			if(val.toString().equals("idlv+-s")) {
-				return 1;					
-			}else {
-				//case of: lp2normal+clasp
-				return 2;
-			}
-			
-		}
+
+		String[] split = val.toString().split(",");
+
+		return Integer.parseInt(split[1]);
+
 
 	}
 	
